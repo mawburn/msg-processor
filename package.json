@@ -9,10 +9,15 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "eslint": "^4.1.1",
     "express": "^4.15.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
     "react-scripts": "1.0.10",
+    "reactstrap": "^4.8.0",
+    "redux": "^3.7.1",
+    "redux-thunk": "^2.2.0",
     "socket-io": "^1.0.0"
   }
 }
