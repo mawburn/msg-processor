@@ -188,7 +188,9 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: true,
-              localIdentName: "[name]__[local]___[hash:base64:5]"
+              localIdentName: "[name]__[local]___[hash:base64:5]",
+              include: path.join(__dirname, 'node_modules'),
+              exclude: /flexboxgrid/,
             },
           },
           {

@@ -2,7 +2,7 @@
   "name": "chat-client",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://mawburn.com/chat-client",
+  "homepage": "https://mawburn.com/chat-client",
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
@@ -42,6 +42,7 @@
     "react-dev-utils": "^3.0.2",
     "react-dom": "^15.6.1",
     "react-error-overlay": "^1.0.9",
+    "react-flexbox-grid": "^1.1.3",
     "react-redux": "^5.0.5",
     "react-transition-group": "^2.0.2",
     "redux": "^3.7.1",

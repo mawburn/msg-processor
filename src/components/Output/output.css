@@ -1,0 +1,8 @@
+.output {
+  height: calc(100vh - 4rem);
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}

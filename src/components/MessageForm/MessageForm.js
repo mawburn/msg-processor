@@ -16,18 +16,18 @@ class ChatForm extends Component {
 
   render() { 
     return (
-      <div className={styles.chatForm}>
+      <div className={styles.msgForm}>
         <form onSubmit={this.handleSubmit}>
           <div className={styles.inputContainer}>
             <input 
-                className={styles.chatInput}
+                className={styles.input}
                 type="text"
-                name="chatInput" 
+                name="messageInput" 
                 placeholder="input a message"
                 ref={(input) => this.input = input} 
             />
           </div>
-          <div className={styles.buttonContainer}>
+          <div className={styles.btnContainer}>
             <button type="submit" className={styles.submitBtn}>Submit</button>
           </div>
         </form>
