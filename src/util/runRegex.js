@@ -8,6 +8,7 @@ const runRegex = (msg, re) => {
   const retArr = []
   let tmpArr
 
+  // eslint-disable-next-line no-cond-assign
   while((tmpArr = re.exec(msg)) !== null) {
     retArr.push(tmpArr[1])
   }

@@ -2,11 +2,9 @@ import { types } from '../actions'
 
 const defaultState = {
   messages: []
-}
+} 
 
 const messages = (state = defaultState, action) => {
-  console.log(action)
-
   switch(action.type) { 
     case types.addNew: {
       const messages = state.messages

@@ -2,6 +2,8 @@
   "extends": "react-app",
   "rules": {
     "indent": ["error", 2, { "SwitchCase": 1 }],
+    "no-console": ["warn", { allow: ["warn", "error"] }],
+    "no-useless-escape": 0,
     "semi": ["error", "never"]
   }
 }

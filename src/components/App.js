@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from 'reactstrap'
+import { Container } from 'reactstrap'
 import ChatFormContainer from '../containers/ChatForm'
 import styles from './chat.css'
 

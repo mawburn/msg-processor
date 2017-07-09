@@ -12,8 +12,6 @@ import reducer from './reducers'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
 const store = createStore(reducer, composeEnhancers(applyMiddleware(ReduxThunk)))
 
-console.log(store)
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
