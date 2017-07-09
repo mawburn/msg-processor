@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import { Container } from 'reactstrap'
-import ChatFormContainer from '../containers/ChatForm'
+import ChatForm from '../containers/ChatForm'
+import Output from '../containers/Output'
 import styles from './chat.css'
 
 class App extends Component {
   render() {
     return ( 
-      <Container className={styles.App}>
-        <ChatFormContainer />
-      </Container> 
+      <div className={styles.App}>
+          <Output />
+          <ChatForm />
+      </div> 
     )
   }
 }

@@ -12,5 +12,10 @@ export const addNew = (message) => ({
 export const consumeMsg = (msg) => dispatch => {
   const msgObj = processMsg(msg)
 
-  dispatch(addNew(msgObj))
+  const newMsg = {
+    input: msg,
+    output: msgObj
+  }
+
+  dispatch(addNew(newMsg))
 }

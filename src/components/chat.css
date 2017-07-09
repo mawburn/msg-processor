@@ -1,5 +1,69 @@
 .App {
-  text-align: center;
-  align-items: flex-end;
+  display: flex;
+  margin: 0 auto;
   height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  background: #f0f0f0;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.chatForm {
+  width: 95%;
+  border: 1px solid #303F9F;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.output {
+  display: block;
+  width: 100%;
+  overflow-x: scroll;
+  align-self: flex-start;
+  background: red;
+}
+
+.inputContainer {
+  width: 75%;
+  display: inline-flex;
+}
+
+.buttonContainer {
+  width: 25%;
+  display: inline-flex;
+}
+
+.inputContainer > input, 
+.submitBtn {
+  width: 100%;
+  height: 100%;
+  height: 2rem;
+  border: 0;
+}
+
+.inputContainer > input {
+  padding-left: 1rem;
+  border-right: 1px solid #303F9F;
+}
+
+.submitBtn {
+  padding: 0;
+  background: #5C6BC0;
+  color: #fff;
+  outline: 0;
+  border: 0;
+}
+
+.submitBtn:hover {
+  cursor: pointer;
+}
+
+.submitBtn:active {
+  background: #303F9F;
+  box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.1);
 }

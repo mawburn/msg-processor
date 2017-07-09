@@ -1,17 +1,9 @@
 import { types } from '../actions'
 
-const defaultState = {
-  messages: []
-} 
-
-const messages = (state = defaultState, action) => {
+const messages = (state = [], action) => {
   switch(action.type) { 
     case types.addNew: {
-      const messages = state.messages
-
-      messages.push(action.message)
-
-      return {...state, messages}
+      return [...state, action.message]
     }
     default: {
       return state
