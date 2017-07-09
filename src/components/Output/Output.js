@@ -1,11 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './chat.css'
+import styles from './output.css'
 
-const Output = (props) => {
-  const { messages } = props
-  console.log(messages.length, messages)
-
+const Output = ({ messages }) => {
   return (
     <div className={styles.output}>
       {messages.map((msg, i) => {

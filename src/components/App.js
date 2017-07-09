@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import ChatForm from '../containers/ChatForm'
-import Output from '../containers/Output'
-import styles from './chat.css'
+import MessageForm from './MessageForm'
+import Output from './Output'
+import styles from './app.css'
 
 class App extends Component {
   render() {
     return ( 
       <div className={styles.App}>
           <Output />
-          <ChatForm />
+          <MessageForm />
       </div> 
     )
   }

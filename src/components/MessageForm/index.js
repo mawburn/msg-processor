@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { consumeMsg } from '../actions'
-import ChatForm from '../components/ChatForm'
+import { consumeMsg } from '../../actions'
+import MessageForm from './MessageForm'
 
 const mapStateToProps = (state) => {
   return {
@@ -14,9 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const ChatFormContainer = connect(
+const MessageFormContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChatForm)
+)(MessageForm)
 
-export default ChatFormContainer
+export default MessageFormContainer

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styles from './chat.css'
+import styles from './messageForm.css'
 
 class ChatForm extends Component {
 

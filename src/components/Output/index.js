@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Output from '../components/Output'
+import Output from './Output'
 
 const mapStateToProps = (state) => {
   return {
