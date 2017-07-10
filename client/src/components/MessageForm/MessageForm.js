@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './messageForm.css'
 
-class ChatForm extends Component {
-
+class MessageForm extends Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -36,8 +35,8 @@ class ChatForm extends Component {
   }
 }
 
-ChatForm.propTypes = {
+MessageForm.propTypes = {
   onSubmit: PropTypes.func.isRequired
 }
 
-export default ChatForm
+export default MessageForm

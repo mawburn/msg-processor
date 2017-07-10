@@ -1,23 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './output.css'
 
-const Output = ({ messages }) => {
-  return (
-    <div className={styles.output}>
-      {messages.map((msg, i) => {
-        return (
-          <div key={i}>
-            <p>Input: {msg.input}</p>
-            <div className={styles.outputDisplay}>
-              Output:
-              <pre>{JSON.stringify(msg.output, 2)}</pre>
-            </div>
-          </div>
-        )
-      })}
-    </div>
-  )
+class Output extends Component {
+  constructor(props) {
+    super(props)
+    this.renderMsg = this.renderMsg.bind(this)
+  }
+
+  componentDidUpdate() {
+    this.bottomNode.scrollIntoView()
+  }
+
+  renderMsg(msg) {
+    return (
+      <div key={msg.id} ref={node => { this.bottomNode = node }}>
+        <p><span className={styles.label}>Input:</span> {msg.input}</p>
+        <div className={styles.outputDisplay}>
+          <p className={styles.label}>Output:</p>
+          <pre className={styles.json}>{JSON.stringify(msg.output, null, 2)}</pre>
+        </div>
+      </div>
+    )
+  }
+
+  render() {
+    const { messages } = this.props
+
+    return (
+      <div className={styles.output}>{messages.map(this.renderMsg)}</div>
+    )
+  }  
 }
 
 Output.propTypes = {

@@ -1,8 +1,20 @@
 .output {
-  height: calc(100vh - 4rem);
+  font-size: 0.8rem;
+  height: calc(100vh - 7rem);
   margin: 0.5rem 0;
   padding: 0.5rem 1rem;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
+  overflow-y: scroll;
+}
+
+.label {
+  color: #303F9F;
+  font-weight: bolder;
+}
+
+.json {
+  font-family: mono;
+  font-size: 0.75rem;
 }

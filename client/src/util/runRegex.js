@@ -10,7 +10,11 @@ const runRegex = (msg, re) => {
 
   // eslint-disable-next-line no-cond-assign
   while((tmpArr = re.exec(msg)) !== null) {
-    retArr.push(tmpArr[1])
+    const match = tmpArr[2].trim()
+
+    if(match.length > 0) {
+      retArr.push(match)
+    }
   }
 
   return retArr.length > 0 ? retArr : undefined

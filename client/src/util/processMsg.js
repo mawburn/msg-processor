@@ -6,9 +6,9 @@ import runRegex from './runRegex'
  * @return {Object}     object containing matching conditions
  */
 const processMsg = (msg) => {
-  const reMention = /\s@([a-zA-Z0-9_.]*)/gi
-  const reEmoticon = /\s\(([a-zA-Z0-9_.]{1,15})\)/gi
-  const reLink = /(https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{2,256}\b[-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi
+  const reMention = /(^|\s)@([a-zA-Z0-9_.]*)/gi
+  const reEmoticon = /(^|\s)\(([a-zA-Z0-9_.]{1,15})\)/gi
+  const reLink = /(^|\s)(https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{2,256}\b[-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi
 
   let retObj = {}
 
@@ -25,7 +25,9 @@ const processMsg = (msg) => {
   }
 
   if(links) {
-    retObj.links = links
+    retObj.links = links.map(link => { 
+      return { url: link, title: '' }
+    })
   }
 
   return retObj
