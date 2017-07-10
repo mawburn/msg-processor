@@ -16,4 +16,5 @@ yarn start
 * update README
 * **write tests**
 * deploy to Heroku or AWS
-* add CSS preprocessor 
+  * add new server based production build
+* add CSS preprocessor
