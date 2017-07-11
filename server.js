@@ -1,4 +1,4 @@
-const express = require("express")
+const express = require('express')
 const app = express()
 const request = require('request')
 const cheerio = require('cheerio')
@@ -11,18 +11,18 @@ const charMap = {
   "'": '&#039;'
 }
 
-app.set("port", process.env.PORT || 3001)
+app.set('port', process.env.PORT || 3001)
 
 // Express only serves static assets in production
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"))
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
 }
 
-app.get("/api/title", (req, res) => {
+app.get('/api/title', (req, res) => {
   const url = req.query.url
 
   if (!url) { 
-    res.json({error: "Missing url"})
+    res.json({error: 'Missing url'})
     return 
   }
 
@@ -36,6 +36,6 @@ app.get("/api/title", (req, res) => {
   })
 })
 
-app.listen(app.get("port"), () => {
-  console.log(`Find the server at: http://localhost:${app.get("port")}/`) // eslint-disable-line no-console
+app.listen(app.get('port'), () => {
+  console.log(`Find the server at: http://localhost:${app.get('port')}/`) // eslint-disable-line no-console
 })

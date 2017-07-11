@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import MessageForm from './MessageForm'
 import Output from './Output'
+import styles from './app.css'
 
 class App extends Component {
   render() {
     return ( 
-      <Grid>
+      <Grid className={styles.container}>
         <Row>
           <Col xs={12}>
             <Output />

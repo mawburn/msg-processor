@@ -2,8 +2,11 @@
   "name": "msg-processor",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mawburn.com/msg-processor",
   "proxy": "http://localhost:3001/",
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
