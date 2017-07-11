@@ -3,6 +3,14 @@ const app = express()
 const request = require('request')
 const cheerio = require('cheerio')
 
+const charMap = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#039;'
+}
+
 app.set("port", process.env.PORT || 3001)
 
 // Express only serves static assets in production
@@ -21,7 +29,8 @@ app.get("/api/title", (req, res) => {
   request.get(url, (err, response, body) => {
     if(!err && response.statusCode === 200) {
       const $ = cheerio.load(body)
-      const title = $('title').text()
+      const title = $('title').text().replace(/[&<>"']/g, (m) => charMap[m])
+
       res.send({title})
     }
   })

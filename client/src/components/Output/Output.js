@@ -14,7 +14,7 @@ class Output extends Component {
 
   renderMsg(msg) {
     return (
-      <div key={msg.id} ref={node => { this.bottomNode = node }}>
+      <div key={msg.id} className={styles.message} ref={node => { this.bottomNode = node }}>
         <p><span className={styles.label}>Input:</span> {msg.input}</p>
         <div className={styles.outputDisplay}>
           <p className={styles.label}>Output:</p>

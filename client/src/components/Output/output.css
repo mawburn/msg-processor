@@ -9,6 +9,10 @@
   overflow-y: scroll;
 }
 
+.message {
+  border-bottom: 1px solid #d7d7d7;
+}
+
 .label {
   color: #303F9F;
   font-weight: bolder;

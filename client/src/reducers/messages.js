@@ -6,7 +6,8 @@ const messages = (state = [], action) => {
       return [...state, action.message]
     }
     case types.updateLink: {
-      const newState = state.map((item, index) => {
+      // update links with their titles asynchronously 
+      return state.map((item, index) => {
         if(item.id !== action.id) {
           return item
         }
@@ -30,8 +31,6 @@ const messages = (state = [], action) => {
           }
         }
       })
-
-      return newState
     }
     default: {
       return state

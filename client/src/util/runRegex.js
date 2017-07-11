@@ -17,7 +17,7 @@ const runRegex = (msg, re) => {
     }
   }
 
-  return retArr.length > 0 ? retArr : undefined
+  return retArr.length > 0 ? Array.from(new Set(retArr)) : undefined
 }
 
 export default runRegex
