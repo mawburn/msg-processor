@@ -1,16 +1,11 @@
 # Message Processor
 
-Project can be run using the following command: 
+Project can be run using `yarn start` or `npm start`. 
 
-```
-yarn start
-```
+Dev server: http://localhost:3000
+
+Live Demo: https://msg-processor.herokuapp.com/
+
+![demo](http://i.imgur.com/jGEg6kn.gif)
 
 \* Built using [create-react-app](https://github.com/facebookincubator/create-react-app)
-
-### TODO 
-* update README
-* **write tests**
-* deploy to Heroku or AWS
-  * add new server based production build
-* add CSS preprocessor

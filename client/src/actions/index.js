@@ -18,6 +18,18 @@ export const updateLink = (id, index, title) => ({
   title
 })
 
+export const fetchTitle = (id, index, link) => dispatch => {
+  return fetch(`api/title?url=${link.url}`)
+      .then(response => {
+        if(response.status >= 200 && response.status < 300) {
+          return response.json()
+        }
+      })
+      .then(json => {
+        dispatch(updateLink(id, index, json.title))
+      })
+}
+
 export const consumeMsg = (msg) => dispatch => {
   const msgObj = processMsg(msg)
   const id = shortid.generate()
@@ -32,15 +44,7 @@ export const consumeMsg = (msg) => dispatch => {
 
   if(msgObj.links) {
     msgObj.links.forEach((link, i) => {
-      fetch(`api/title?url=${link.url}`)
-        .then(response => {
-          if(response.status >= 200 && response.status < 300) {
-            return response.json()
-          }
-        })
-        .then(json => {
-          dispatch(updateLink(id, i, json.title))
-        })
+      dispatch(fetchTitle(id, i, link))
     })
   }
 }
