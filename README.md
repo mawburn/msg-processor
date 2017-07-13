@@ -12,6 +12,13 @@ cd ..
 yarn start
 ```
 
+Production Build: 
+
+```
+cd client
+yarn build
+```
+
 Dev Server: http://localhost:3000
 
 Live Demo: https://msg-processor.herokuapp.com/
