@@ -9,6 +9,7 @@ import shortid from 'shortid' // eslint-disable-line
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
+// --- Test Basic Actions
 describe('message actions', () => {
   it('addNew should create a ADD_NEW_MESSAGE action', () => {
     expect(actions.addNew({})).toEqual({
@@ -52,11 +53,13 @@ describe('message actions', () => {
   })
 })
 
+// --- Test Async Action Creators
 describe('async actions', () => {
   afterEach(() => {
     nock.cleanAll()
   })
 
+  // ---- Test Good Responses
   it('creates UPDATE_LINK when fetching url title has been done', () => {
     nock('http://localhost')
       .get('/api/title')
@@ -65,6 +68,60 @@ describe('async actions', () => {
 
     const expectedActions = [ 
       {type: 'UPDATE_LINK', id: 1, index: 1, title: 'Good News Everyone!' }
+    ]
+
+    const store = mockStore({messages: []})
+
+    return store.dispatch(actions.fetchTitle(1, 1, {url: 'http://futurama.com'})).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+    })
+  })
+
+  // ---- Test 500 Error Handling
+  it('returns UPDATE_LINK with an error message on server error', () => {
+    nock('http://localhost')
+      .get('/api/title')
+      .query({url: 'http://futurama.com'})
+      .reply(500, {title: 'Good News Everyone!'})
+
+    const expectedActions = [ 
+      {type: 'UPDATE_LINK', id: 1, index: 1, title: 'Error: API Server Response' }
+    ]
+
+    const store = mockStore({messages: []})
+
+    return store.dispatch(actions.fetchTitle(1, 1, {url: 'http://futurama.com'})).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+    })
+  })
+
+  // ---- Test 422 Error Handling
+  it('returns UPDATE_LINK with an error message on retrieving title errors', () => {
+    nock('http://localhost')
+      .get('/api/title')
+      .query({url: 'http://futurama.com'})
+      .reply(422, {Error: 'Missing Parameter'})
+
+    const expectedActions = [ 
+      {type: 'UPDATE_LINK', id: 1, index: 1, title: 'Error: Missing Parameter' }
+    ]
+
+    const store = mockStore({messages: []})
+
+    return store.dispatch(actions.fetchTitle(1, 1, {url: 'http://futurama.com'})).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+    })
+  })
+
+  // ---- Test all other Errors
+  it('returns UPDATE_LINK with an error message on retrieving title errors', () => {
+    nock('http://localhost')
+      .get('/api/title')
+      .query({url: 'http://futurama.com'})
+      .reply(200, {error: 'unknown'})
+
+    const expectedActions = [ 
+      {type: 'UPDATE_LINK', id: 1, index: 1, title: 'Error: Unknown Fetch Error' }
     ]
 
     const store = mockStore({messages: []})

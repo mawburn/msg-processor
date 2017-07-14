@@ -22,7 +22,8 @@ app.get('/api/title', (req, res) => {
   const url = req.query.url
 
   if (!url) { 
-    res.json({error: 'Missing url'})
+    res.status(422)
+    res.send('Missing Parameter')
     return 
   }
 

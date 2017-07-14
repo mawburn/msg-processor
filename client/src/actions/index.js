@@ -23,10 +23,21 @@ export const fetchTitle = (id, index, link) => dispatch => {
       .then(response => {
         if(response.status >= 200 && response.status < 300) {
           return response.json()
+        } else if (response.status === 422) {
+          throw new Error('Missing Parameter') 
         }
+
+        throw new Error('API Server Response') 
       })
       .then(json => {
-        dispatch(updateLink(id, index, json.title))
+        if(json.title) {
+          return dispatch(updateLink(id, index, json.title))
+        } 
+        
+        throw new Error('Unknown Fetch Error')
+      })
+      .catch(e => {
+        dispatch(updateLink(id, index, e.toString()))
       })
 }
 
